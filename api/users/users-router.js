@@ -60,7 +60,7 @@ router.get('/:id/posts', validateUserId, async (req, res) => {
     }
 });
 
-router.post('/:id/posts', validateUserId, validatePost, async (req, res) => {
+router.post('/:id/posts', validateUserId, validatePost, async (req, res, next) => {
     try {
         const result = await Posts.insert({ user_id: req.params.id, text: req.text})
         res.status(201).json(result)
