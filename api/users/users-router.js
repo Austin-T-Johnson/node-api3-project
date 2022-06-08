@@ -51,7 +51,7 @@ router.delete('/:id', validateUserId, async (req, res, next) => {
     }
 });
 
-router.get('/:id/posts', validateUserId, async (req, res) => {
+router.get('/:id/posts', validateUserId, async (req, res, next) => {
     try {
         const result = await Users.getUserPosts(req.params.id)
         res.json(result)
